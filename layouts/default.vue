@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar :clipped-left="clipped" fixed app>
+    <v-app-bar dark flat :clipped-left="clipped" fixed app>
       <img src="~/assets/australis-title.png" />
       <v-spacer />
       <v-toolbar-title v-text="title" />

@@ -69,6 +69,7 @@ export default {
           summary: 'Networking Library for Roblox',
           icon: '/images/net/logo.png',
           github: 'https://github.com/roblox-aurora/rbx-net',
+          page: '/net',
           oldPage: 'https://roblox-aurora.github.io/rbx-net',
         },
         {

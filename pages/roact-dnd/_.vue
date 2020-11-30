@@ -68,7 +68,7 @@ import Logo from '~/components/Logo.vue'
 import VuetifyLogo from '~/components/VuetifyLogo.vue'
 
 export default {
-  layout: 'docs',
+  layout: 'roact-dnd',
   components: {},
   async asyncData({ $content, params, error }) {
     const documents = {}

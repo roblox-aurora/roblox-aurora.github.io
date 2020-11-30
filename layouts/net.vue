@@ -1,13 +1,21 @@
 <template>
   <v-app>
+    <navigation :items="items" />
     <v-navigation-drawer
+      v-if="false"
       v-model="drawer"
+      dark
       :mini-variant="miniVariant"
       :clipped="clipped"
       fixed
       app
     >
       <v-list>
+        <v-list-group>
+          <template v-slot:activator>
+            <v-list-item-title>Users</v-list-item-title>
+          </template>
+        </v-list-group>
         <v-list-item
           v-for="(item, i) in items"
           :key="i"
@@ -24,13 +32,15 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app color="blue" flat dense>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+    <v-app-bar :clipped-left="clipped" fixed app flat dense dark>
+      <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer" /> -->
+
+      <v-toolbar-title v-text="title" />
+      <v-spacer />
+      <!-- <v-btn text href="/net/api"> API Docs </v-btn> -->
       <v-btn icon href="/">
         <v-icon>mdi-home</v-icon>
       </v-btn>
-      <v-toolbar-title v-text="title" />
-      <v-spacer />
     </v-app-bar>
     <v-main>
       <v-container>
@@ -56,25 +66,30 @@ export default {
       fixed: true,
       items: [
         {
+          type: 'link',
           icon: 'mdi-apps',
           title: 'Home',
-          to: '/roact-dnd',
+          to: '/net',
         },
         {
-          icon: 'mdi-alert-decagram',
-          title: 'Quick Guide',
-          to: '/roact-dnd/basic-examples',
+          type: 'category',
+          path: '^/net/install\\-',
+          title: 'Installation',
+          icon: 'mdi-package-variant',
+          children: [
+            {
+              type: 'link',
+              title: 'Install for TypeScript',
+
+              to: '/net/install-typescript',
+            },
+          ],
         },
-        // {
-        //   icon: 'mdi-drag-variant',
-        //   title: 'Usage',
-        //   to: '/roact-dnd/basic-usage',
-        // },
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Roact Drag & Drop',
+      title: 'RbxNet',
     }
   },
 }
