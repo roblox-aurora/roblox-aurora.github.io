@@ -24,11 +24,8 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app>
+    <v-app-bar :clipped-left="clipped" fixed app color="blue" flat dense>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <!-- <v-btn icon @click.stop="miniVariant = !miniVariant">
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn> -->
       <v-btn icon href="/">
         <v-icon>mdi-home</v-icon>
       </v-btn>
@@ -41,24 +38,22 @@
       </v-container>
     </v-main>
     <v-footer :absolute="!fixed" app>
-      <span>&copy; Aurora Australis {{ new Date().getFullYear() }}</span>
+      <span>&copy; Jonathan Holmes {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
 </template>
-
+<style lang="scss">
+.v-application code {
+  all: unset;
+}
+</style>
 <script>
 export default {
-  async asyncData({ $content }) {
-    console.log('data')
-    return {
-      items: [],
-    }
-  },
   data() {
     return {
       clipped: true,
       drawer: true,
-      fixed: false,
+      fixed: true,
       items: [
         {
           icon: 'mdi-apps',
@@ -66,10 +61,15 @@ export default {
           to: '/roact-dnd',
         },
         {
-          icon: 'mdi-drag-variant',
-          title: 'Drag & Drop Basics',
+          icon: 'mdi-alert-decagram',
+          title: 'Quick Guide',
           to: '/roact-dnd/basic-examples',
         },
+        // {
+        //   icon: 'mdi-drag-variant',
+        //   title: 'Usage',
+        //   to: '/roact-dnd/basic-usage',
+        // },
       ],
       miniVariant: false,
       right: true,
