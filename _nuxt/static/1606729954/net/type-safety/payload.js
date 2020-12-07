@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/net/type-safety", (function(a){return {data:[{page:a}],fetch:[],mutations:a}}(void 0)));
