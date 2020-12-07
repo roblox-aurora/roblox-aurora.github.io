@@ -42,7 +42,7 @@
     </v-footer>
   </v-app>
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
 .v-application code {
   all: unset;
 }

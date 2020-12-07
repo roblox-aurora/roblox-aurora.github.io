@@ -1,27 +1,19 @@
 <template>
-  <v-navigation-drawer v-model="drawer" :clipped="clipped" fixed app>
-    <v-list>
-      <navigation-item
-        v-for="item in items"
-        :key="item.id || item.to || item.title"
-        :item="item"
-      />
-      <!-- <v-list-item
-        v-for="(item, i) in items"
-        :key="i"
-        :to="item.to"
-        router
-        exact
-      >
-        <v-list-item-action>
-          <v-icon>{{ item.icon }}</v-icon>
-        </v-list-item-action>
-        <v-list-item-content>
-          <v-list-item-title v-text="item.title" />
-        </v-list-item-content>
-      </v-list-item> -->
-    </v-list>
-  </v-navigation-drawer>
+  <!-- <v-navigation-drawer
+    :value="drawer"
+    :clipped="clipped"
+    fixed
+    app
+    @input="handleUpdate"
+  > -->
+  <v-list>
+    <navigation-item
+      v-for="item in items"
+      :key="item.id || item.to || item.title"
+      :item="item"
+    />
+  </v-list>
+  <!-- </v-navigation-drawer> -->
 </template>
 <script lang="ts">
 import Vue from 'vue'
@@ -39,11 +31,16 @@ export interface NavigationPath {
   components: { NavigationItem },
   props: {
     items: Array,
+    value: Boolean,
   },
 })
 export default class Navigation extends Vue {
   public items!: NavigationPath[]
-  drawer = true
+  private value!: boolean
+  drawer = this.value
   clipped = true
+  handleUpdate() {
+    this.$emit('input', this.drawer)
+  }
 }
 </script>

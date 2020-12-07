@@ -1,10 +1,9 @@
 ## Features
-- Creation & Usage of remotes through "IDs". The actual remotes are managed by Net.
-- More explicit, contextual APIs. `Server` objects are explicitly for the server, `Client` objects explicitly for the client.
-- Asynchronous remote functions (`Net*AsyncFunction`) - Which unlike regular remote functions allow timeouts and safely calling clients without issues.
-- Asynchronous methods - part of being a roblox-ts built library is the support for `Promise`.
-- Caching - Results from RemoteFunctions can be cached on the client for a set amount of time.
-- Throttling - RemoteFunctions and RemoteEvents can be set to throttle requests.
-- [Type Safety](/net/type-safety/) - Using a library such as `t`, you can explicitly set what your RemoteFunctions/RemoteEvents accept as valid arguments. Any invalid arguments will be discarded.
-- GlobalServerEvents - Special RemoteEvent-like objects that use MessagingService to communicate cross-server. Limitations of MessagingService are automatically handled through it.
-- Serialization Helpers - Net.Serialize, Net.Deserialize, Net.IsSerializable
+
+- Creation and usage of remotes through "identifiers". Management of the remotes themselves are done by Net itself.
+- More explicit, contextual APIs. `Net.Server` for server-based API, and `Net.Client` for client-based API.
+- Ability for remote definitions through `Net.Definitions`.
+- Asynchronous functions - `Net.*.AsyncFunction`. No more pitfalls of regular remote functions.
+- Asynchronous callbacks and methods: because it's a roblox-ts library, it supports promises.
+- Middleware - Ability to add your own custom behaviours to remotes. Net comes with a runtime type checker, and a rate limiter middleware.
+- `CrossServerEvents` - interact with `MessagingService` like you would with regular remote events. All the limitations are handled by Net.

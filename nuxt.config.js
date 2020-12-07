@@ -1,4 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
+import highlightjs from 'highlight.js'
 
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
@@ -42,6 +43,13 @@ export default {
   // Content module configuration (https://go.nuxtjs.dev/config-content)
   content: {
     markdown: {
+      remarkPlugins: ['remark-hint', 'remark-gfm', 'remark-code-import'],
+      // highlighter(rawCode, lang) {
+      //   const highlightedCode = highlightjs.highlight(lang, rawCode)
+      //   return `<pre><code class='hljs ${
+      //     lang ?? 'txt'
+      //   }'>${highlightedCode}</code></pre>`
+      // },
       prism: {
         theme: 'assets/prism-vsc-dark-plus.css',
       },

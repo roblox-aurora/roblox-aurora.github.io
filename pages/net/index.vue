@@ -4,10 +4,11 @@
       <!-- <nuxt-content :document="page" /> -->
       <center>
         <img src="/images/net/logo.png" />
-        <h1>Roblox Networking Library</h1>
+        <h1>Net</h1>
         <p>
-          RbxNet is a networking library for Roblox, built in TypeScript. It
-          simplifies the creation and management of networking in Roblox.
+          Net (Networking) is a networking library for Roblox, built in
+          TypeScript. It simplifies the creation and management of networking in
+          Roblox.
         </p>
       </center>
       <nuxt-content :document="features" />
